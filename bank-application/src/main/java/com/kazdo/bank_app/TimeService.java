@@ -6,14 +6,11 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class TimeService {
-
 	public static String getCurrentTime() {
-        Calendar cal = Calendar.getInstance();
-        Date date=cal.getTime();
-        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-        String formattedDate=dateFormat.format(date);
-        
-        return formattedDate;
-    }
-	
+		Calendar cal = Calendar.getInstance();
+		Date timeDate = cal.getTime();
+		DateFormat timeDateFormat = new SimpleDateFormat("HH:mm:ss");
+		String time = timeDateFormat.format(timeDate);
+		return time;
+	}
 }

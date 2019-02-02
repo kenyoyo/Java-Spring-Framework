@@ -1,0 +1,19 @@
+package com.kazdo.bank_app_using_aop;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class BankingService implements IBankingSystem {
+	
+	@Autowired
+	private BankAccount bankAccount;
+	@Autowired
+	private Security secure;
+	@Autowired
+	private Transaction transaction;
+	@Autowired
+	private UserAccount userAccount;
+
+	
+}

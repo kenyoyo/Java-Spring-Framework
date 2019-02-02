@@ -4,44 +4,42 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BankApp implements IBankingSystem {
-
+public class BankApp implements BankingSystem {
 	@Autowired
-	private BankingService service;
+	private BankingService bankService;
 
 	@Override
-	public void createAccount(String username, String password) {
-		service.createAccount(username, password);
+	public void createAccountBySettingUsernameAndPassword(String username, String password) {
+		bankService.createAccountBySettingUsernameAndPassword(username, password);
 	}
 
 	@Override
-	public void login(String password) {
-		service.login(password);
+	public void loginBySendingPassword(String password) {
+		bankService.loginBySendingPassword(password);
 	}
 
 	@Override
-	public void deposit(double amount) {
-		service.deposit(amount);
+	public void depositWithAmountOf(double amount) {
+		bankService.depositWithAmountOf(amount);
 	}
 
 	@Override
-	public void withdraw(double amount) {
-		service.withdraw(amount);
+	public void withdrawWithAmountOf(double amount) {
+		bankService.withdrawWithAmountOf(amount);
 	}
 
 	@Override
-	public void tranfer(String usernameTranfer, double amount) {
-		service.tranfer(usernameTranfer, amount);
+	public void tranferToUserWithAmountOf(String usernameTranfer, double amount) {
+		bankService.tranferToUserWithAmountOf(usernameTranfer, amount);
 	}
 
 	@Override
 	public void viewAmount() {
-		service.viewAmount();
+		bankService.viewAmount();
 	}
 
 	@Override
 	public void viewTransaction() {
-		service.viewTransaction();
+		bankService.viewTransaction();
 	}
-
 }

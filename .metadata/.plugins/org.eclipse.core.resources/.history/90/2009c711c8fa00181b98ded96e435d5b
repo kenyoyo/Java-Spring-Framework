@@ -1,0 +1,32 @@
+package com.kazdo.bank_app_using_aop;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class SecurityTest {
+
+	private ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+	private Security secure;
+
+	@Before
+	public void setup() {
+		secure = context.getBean(Security.class);
+	}
+
+	@Test
+	public void testHaveNotIdentify() {
+		assertFalse(secure.isLogin());
+	}
+	
+	@Test
+	public void testHaveIdentify() {
+		secure.identify();
+		assertTrue(secure.isLogin());
+	}
+
+}

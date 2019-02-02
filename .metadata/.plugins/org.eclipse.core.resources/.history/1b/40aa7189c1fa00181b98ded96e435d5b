@@ -1,0 +1,23 @@
+package com.kazdo.bank_app_using_aop;
+
+public class BankAccount {
+
+	private double amount;
+
+	public double getCash() {
+		return amount;
+	}
+
+	public void setCash(double cash) {
+		this.amount = cash;
+	}
+	
+	public boolean add() {
+		return false;
+	}
+	
+	public boolean substract() {
+		return false;
+	}
+	
+}

@@ -7,37 +7,32 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Transaction {
-	
-	private List<String> transactionList;
-	
+	private List<String> transactions;
+
 	public Transaction() {
-		transactionList = new ArrayList<>();
+		transactions = new ArrayList<>();
 	}
-	
+
 	public void commitDeposit(double amount) {
 		String depositTransaction = TimeService.getCurrentTime() + " - Deposit: " + amount;
-		transactionList.add(depositTransaction);
+		transactions.add(depositTransaction);
 	}
-	
+
+	public void commitTranfer(String userTranfer, double amount) {
+		String tranferTransaction = TimeService.getCurrentTime() + " - Tranfer to " + userTranfer + ": " + amount;
+		transactions.add(tranferTransaction);
+	}
+
 	public void commitWithdraw(double amount) {
 		String withdrawTransaction = TimeService.getCurrentTime() + " - Withdraw: " + amount;
-		transactionList.add(withdrawTransaction);
+		transactions.add(withdrawTransaction);
 	}
-	
-	public void commitTranfer(String userTranfer, double amount) {
-		String tranferTransaction = TimeService.getCurrentTime() + 
-									" - Tranfer to " + userTranfer + 
-									": " + amount;
-		
-		transactionList.add(tranferTransaction);
+
+	public String getInformation(int transactionNumber) {
+		return transactions.get(transactionNumber - 1);
 	}
-	
-	public String getInform(int transactionNumber) {
-		return transactionList.get(transactionNumber-1);
-	}
-	
+
 	public int getSize() {
-		return transactionList.size();
+		return transactions.size();
 	}
-	
 }

@@ -22,18 +22,18 @@ public class TransactionTest {
 		transaction.commitDeposit(1000.50);
 		transaction.commitWithdraw(500.25);
 		transaction.commitTranfer("Ronn", 400.50);
-		
+
 		assertEquals(3, transaction.getSize());
 	}
-	
+
 	@Test
 	public void testWorkingTransaction() {
 		transaction.commitDeposit(1000.50);
 		transaction.commitWithdraw(500.25);
 		transaction.commitTranfer("Ronn", 400.50);
-		
-		for(int i=1; i<=transaction.getSize(); i++) {
-			System.out.println(transaction.getInform(i));
+
+		for (int i = 1; i <= transaction.getSize(); i++) {
+			System.out.println(transaction.getInformation(i));
 		}
 	}
 

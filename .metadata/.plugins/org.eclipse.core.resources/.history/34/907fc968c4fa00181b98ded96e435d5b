@@ -1,0 +1,23 @@
+package com.kazdo.bank_app_using_aop;
+
+public class BankAccountTest {
+
+	
+	
+	public void testAddAmount() {
+		
+	}
+	
+	public void testAddMinusAmount() {
+		
+	}
+	
+	public void testSubtractAmount() {
+		
+	}
+	
+	public void testSubtractMinusAmount() {
+		
+	}
+	
+}

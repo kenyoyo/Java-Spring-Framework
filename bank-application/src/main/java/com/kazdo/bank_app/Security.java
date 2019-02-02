@@ -4,7 +4,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Security {
-
 	private boolean isLogin;
 
 	public void identify() {
@@ -14,5 +13,4 @@ public class Security {
 	public boolean isLogin() {
 		return isLogin;
 	}
-
 }

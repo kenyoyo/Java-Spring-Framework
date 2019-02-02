@@ -1,0 +1,48 @@
+package com.kazdo.bank_app;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.kazdo.bank_app.AppConfig;
+import com.kazdo.bank_app.Transaction;
+
+public class TransactionTest {
+
+	private ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+	private Transaction transaction;
+
+	@Before
+	public void setup() {
+		transaction = context.getBean(Transaction.class);
+	}
+	
+	@Test
+	public void testCorrectSizeTransaction() {
+		String testTransaction1 = "Commit test transaction 1.";
+		String testTransaction2 = "Commit test transaction 2.";
+		
+		transaction.commit(testTransaction1);
+		transaction.commit(testTransaction2);
+		
+		assertEquals(2, transaction.getSize());
+	}
+
+	@Test
+	public void testWorkingTransaction() {
+		String testTransaction1 = "Commit test transaction 1.";
+		String testTransaction2 = "Commit test transaction 2.";
+		
+		transaction.commit(testTransaction1);
+		transaction.commit(testTransaction2);
+		
+		assertEquals(testTransaction1, transaction.getInform(1));
+		assertEquals(testTransaction2, transaction.getInform(2));
+	}
+	
+}

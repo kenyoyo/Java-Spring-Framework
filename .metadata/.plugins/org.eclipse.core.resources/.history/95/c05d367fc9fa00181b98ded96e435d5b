@@ -1,0 +1,24 @@
+package com.kazdo.bank_app_using_aop;
+
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Transaction {
+	
+	private List<String> transactionList;
+	
+	public void commitTransaction(String inform) {
+		
+	}
+	
+	public String getTransactionInform(int transactionNumber) {
+		return transactionList.get(transactionNumber-1);
+	}
+	
+	public int getTransactionSize() {
+		return transactionList.size();
+	}
+	
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;bank-app-using-aop&apos; to &apos;bank-application&apos;&#x0D;&#x0A;- Original element: &apos;bank-app-using-aop&apos;&#x0D;&#x0A;- Renamed element: &apos;bank-app-using-aop&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;bank-app-using-aop&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=bank-app-using-aop" name="bank-application" references="true" stamp="1544273979247" version="1.0"/>
+</session>

@@ -1,0 +1,50 @@
+package com.kazdo.bank_app_using_aop;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class BankApp implements IBankingSystem {
+
+	@Autowired
+	private BankingService service;
+
+	@Override
+	public void createAccount(String username, String password) {
+		service.createAccount(username, password);
+	}
+
+	@Override
+	public void login(String password) {
+		service.login(password);
+	}
+
+	@Override
+	public void deposit(double amount) {
+		service.deposit(amount);
+	}
+
+	@Override
+	public void withdraw(double amount) {
+		service.withdraw(amount);
+	}
+
+	@Override
+	public void tranfer(String usernameTranfer, double amount) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void viewAmount() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void viewTransaction() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

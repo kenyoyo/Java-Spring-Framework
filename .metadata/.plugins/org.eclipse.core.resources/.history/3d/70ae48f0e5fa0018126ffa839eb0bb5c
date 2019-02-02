@@ -1,0 +1,46 @@
+package com.kazdo.bank_app_using_aop;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class BankApp {
+	
+	@Autowired
+	private BankAccount bankAccount;
+	@Autowired
+	private Security secure;
+	@Autowired
+	private Transaction transaction;
+	@Autowired
+	private UserAccount userAccount;
+	
+	public void createAccount(String username, String password) {
+		
+	}
+	
+	public void login(String password) {
+		
+	}
+	
+	public void deposit(double amount) {
+		
+	}
+	
+	public void withdraw(double amount) {
+		
+	}
+	
+	public void tranfer(BankAccount tranferAccount, double amount) {
+		
+	}
+	
+	public void viewAmount() {
+		
+	}
+	
+	public void viewTransaction() {
+		
+	}
+	
+}

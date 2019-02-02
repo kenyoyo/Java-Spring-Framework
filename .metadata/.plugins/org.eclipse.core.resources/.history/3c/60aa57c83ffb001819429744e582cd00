@@ -1,0 +1,17 @@
+package com.kazdo.bank_app;
+
+import org.aspectj.lang.annotation.Aspect;
+
+@Aspect
+public class SecureHelper {
+
+	private Security secure;
+
+	public void checkLogin() {
+		if (!secure.isLogin()) {
+			System.out.println("Please login.");
+			return;
+		}
+	}
+
+}

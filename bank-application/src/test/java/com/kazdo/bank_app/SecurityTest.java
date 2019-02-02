@@ -8,9 +8,6 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.kazdo.bank_app.AppConfig;
-import com.kazdo.bank_app.Security;
-
 public class SecurityTest {
 
 	private ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
@@ -22,14 +19,14 @@ public class SecurityTest {
 	}
 
 	@Test
-	public void testHasNotIdentify() {
-		assertFalse(secure.isLogin());
-	}
-	
-	@Test
 	public void testHasIdentify() {
 		secure.identify();
 		assertTrue(secure.isLogin());
+	}
+
+	@Test
+	public void testHasNotIdentify() {
+		assertFalse(secure.isLogin());
 	}
 
 }

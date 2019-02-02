@@ -1,0 +1,26 @@
+package com.kazdo.bank_app_using_aop;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class BankAccount {
+
+	private double amount;
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double cash) {
+		this.amount = cash;
+	}
+
+	public boolean add() {
+		return false;
+	}
+
+	public boolean substract() {
+		return false;
+	}
+
+}

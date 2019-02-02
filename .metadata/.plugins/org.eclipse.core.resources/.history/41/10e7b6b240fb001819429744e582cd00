@@ -1,0 +1,23 @@
+package com.kazdo.bank_app;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.stereotype.Component;
+
+@Aspect
+@EnableAspectJAutoProxy
+@Component
+public class SecureHelper {
+
+	private Security secure;
+
+	@Before("public void viewAmount())")
+	public void checkLogin() {
+		if (!secure.isLogin()) {
+			System.out.println("Please login.");
+			return;
+		}
+	}
+
+}

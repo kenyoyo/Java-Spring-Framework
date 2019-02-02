@@ -1,0 +1,39 @@
+package com.kazdo.bank_app_using_aop;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class BankAccountTest {
+	
+	private ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+			
+	private BankAccount bankAccount;
+	
+	@Before
+	public void setup() {
+		bankAccount = context.getBean(BankAccount.class); 
+	}
+	
+	@Test
+	public void testAddAmount() {
+		bankAccount.add(1000.50);
+	}
+	
+	@Test
+	public void testAddMinusAmount() {
+		
+	}
+	
+	@Test
+	public void testSubtractAmount() {
+		
+	}
+	
+	@Test
+	public void testSubtractMinusAmount() {
+		
+	}
+	
+}
