@@ -14,4 +14,6 @@ public interface BankingSystem {
 	public void viewAmount();
 
 	public void viewTransaction();
+
+	public void viewProfile();
 }

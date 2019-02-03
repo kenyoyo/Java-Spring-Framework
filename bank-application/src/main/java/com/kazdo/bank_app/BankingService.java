@@ -124,6 +124,14 @@ public class BankingService implements BankingSystem {
 	}
 
 	@Override
+	public void viewProfile() {
+		if (isUserLoggedIn())
+			System.out.println("Profile: Your username is " + userAccount.getUsername());
+		else
+			System.out.println("Please login.");
+	}
+
+	@Override
 	public void viewTransaction() {
 		if (isUserLoggedIn())
 			checkTransaction();

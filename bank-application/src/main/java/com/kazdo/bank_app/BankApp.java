@@ -42,4 +42,9 @@ public class BankApp implements BankingSystem {
 	public void viewTransaction() {
 		bankService.viewTransaction();
 	}
+
+	@Override
+	public void viewProfile() {
+		bankService.viewProfile();
+	}
 }
