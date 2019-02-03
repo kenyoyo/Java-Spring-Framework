@@ -17,19 +17,19 @@ public class BankingService implements BankingSystem {
 	@Override
 	public void createAccountBySettingUsernameAndPassword(String username, String password)
 			throws InterruptedException {
-		systemProcessDelay();
 		userAccount.setUsername(username);
 		userAccount.setPassword(password);
+		systemProcessDelay();
 	}
 
 	@Override
 	public void loginBySendingPassword(String password) throws InterruptedException {
-		systemProcessDelay();
 		if (verifyPassword(password)) {
 			secure.identify();
 			System.out.println("Login success.");
 		} else
 			System.out.println("Password isn't correct.");
+		systemProcessDelay();
 	}
 
 	private boolean verifyPassword(String password) {
@@ -42,29 +42,29 @@ public class BankingService implements BankingSystem {
 
 	@Override
 	public void depositWithAmountOf(double amount) throws InterruptedException {
-		systemProcessDelay();
 		if (isUserLoggedIn())
 			checkDepositWithAmountOf(amount);
 		else
 			System.out.println("Please login.");
+		systemProcessDelay();
 	}
 
 	@Override
 	public void withdrawWithAmountOf(double amount) throws InterruptedException {
-		systemProcessDelay();
 		if (isUserLoggedIn())
 			checkWithdrawWithAmountOf(amount);
 		else
 			System.out.println("Please login.");
+		systemProcessDelay();
 	}
 
 	@Override
 	public void tranferToUserWithAmountOf(String userTranfer, double amount) throws InterruptedException {
-		systemProcessDelay();
 		if (isUserLoggedIn())
 			checkTranferToUserWithAmountOf(userTranfer, amount);
 		else
 			System.out.println("Please login.");
+		systemProcessDelay();
 	}
 
 	private void checkDepositWithAmountOf(double amount) {
@@ -116,30 +116,29 @@ public class BankingService implements BankingSystem {
 
 	@Override
 	public void viewAmount() throws InterruptedException {
-		systemProcessDelay();
 		if (isUserLoggedIn())
 			System.out.println("Your current amount is " + bankAccount.getAmount());
 		else
 			System.out.println("Please login.");
-
+		systemProcessDelay();
 	}
 
 	@Override
 	public void viewProfile() throws InterruptedException {
-		systemProcessDelay();
 		if (isUserLoggedIn())
 			System.out.println("Profile: Your username is " + userAccount.getUsername());
 		else
 			System.out.println("Please login.");
+		systemProcessDelay();
 	}
 
 	@Override
 	public void viewTransaction() throws InterruptedException {
-		systemProcessDelay();
 		if (isUserLoggedIn())
 			checkTransaction();
 		else
 			System.out.println("Please login.");
+		systemProcessDelay();
 	}
 
 	private static void systemProcessDelay() throws InterruptedException {
