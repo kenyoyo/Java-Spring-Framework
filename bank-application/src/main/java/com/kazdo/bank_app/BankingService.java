@@ -15,13 +15,16 @@ public class BankingService implements BankingSystem {
 	private UserAccount userAccount;
 
 	@Override
-	public void createAccountBySettingUsernameAndPassword(String username, String password) {
+	public void createAccountBySettingUsernameAndPassword(String username, String password)
+			throws InterruptedException {
+		systemProcessDelay();
 		userAccount.setUsername(username);
 		userAccount.setPassword(password);
 	}
 
 	@Override
-	public void loginBySendingPassword(String password) {
+	public void loginBySendingPassword(String password) throws InterruptedException {
+		systemProcessDelay();
 		if (verifyPassword(password)) {
 			secure.identify();
 			System.out.println("Login success.");
@@ -38,7 +41,8 @@ public class BankingService implements BankingSystem {
 	}
 
 	@Override
-	public void depositWithAmountOf(double amount) {
+	public void depositWithAmountOf(double amount) throws InterruptedException {
+		systemProcessDelay();
 		if (isUserLoggedIn())
 			checkDepositWithAmountOf(amount);
 		else
@@ -46,7 +50,8 @@ public class BankingService implements BankingSystem {
 	}
 
 	@Override
-	public void withdrawWithAmountOf(double amount) {
+	public void withdrawWithAmountOf(double amount) throws InterruptedException {
+		systemProcessDelay();
 		if (isUserLoggedIn())
 			checkWithdrawWithAmountOf(amount);
 		else
@@ -54,7 +59,8 @@ public class BankingService implements BankingSystem {
 	}
 
 	@Override
-	public void tranferToUserWithAmountOf(String userTranfer, double amount) {
+	public void tranferToUserWithAmountOf(String userTranfer, double amount) throws InterruptedException {
+		systemProcessDelay();
 		if (isUserLoggedIn())
 			checkTranferToUserWithAmountOf(userTranfer, amount);
 		else
@@ -83,17 +89,11 @@ public class BankingService implements BankingSystem {
 	}
 
 	private boolean isCanDepositWithAmountOf(double amount) {
-		if (bankAccount.isCanAddWithAmount(amount))
-			return true;
-		else
-			return false;
+		return bankAccount.isCanAddWithAmount(amount);
 	}
 
 	private boolean isCanWithdrawOrTranferWithAmountOf(double amount) {
-		if (bankAccount.isCanSubtractWithAmount(amount))
-			return true;
-		else
-			return false;
+		return bankAccount.isCanSubtractWithAmount(amount);
 	}
 
 	private void depositingWithAmountOf(double amount) {
@@ -115,7 +115,8 @@ public class BankingService implements BankingSystem {
 	}
 
 	@Override
-	public void viewAmount() {
+	public void viewAmount() throws InterruptedException {
+		systemProcessDelay();
 		if (isUserLoggedIn())
 			System.out.println("Your current amount is " + bankAccount.getAmount());
 		else
@@ -124,7 +125,8 @@ public class BankingService implements BankingSystem {
 	}
 
 	@Override
-	public void viewProfile() {
+	public void viewProfile() throws InterruptedException {
+		systemProcessDelay();
 		if (isUserLoggedIn())
 			System.out.println("Profile: Your username is " + userAccount.getUsername());
 		else
@@ -132,18 +134,20 @@ public class BankingService implements BankingSystem {
 	}
 
 	@Override
-	public void viewTransaction() {
+	public void viewTransaction() throws InterruptedException {
+		systemProcessDelay();
 		if (isUserLoggedIn())
 			checkTransaction();
 		else
 			System.out.println("Please login.");
 	}
 
+	private static void systemProcessDelay() throws InterruptedException {
+		Thread.sleep(500);
+	}
+
 	private boolean isUserLoggedIn() {
-		if (secure.isLogin())
-			return true;
-		else
-			return false;
+		return secure.isLogin();
 	}
 
 	private void checkTransaction() {

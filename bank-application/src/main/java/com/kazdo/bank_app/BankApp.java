@@ -9,42 +9,43 @@ public class BankApp implements BankingSystem {
 	private BankingService bankService;
 
 	@Override
-	public void createAccountBySettingUsernameAndPassword(String username, String password) {
+	public void createAccountBySettingUsernameAndPassword(String username, String password)
+			throws InterruptedException {
 		bankService.createAccountBySettingUsernameAndPassword(username, password);
 	}
 
 	@Override
-	public void loginBySendingPassword(String password) {
+	public void loginBySendingPassword(String password) throws InterruptedException {
 		bankService.loginBySendingPassword(password);
 	}
 
 	@Override
-	public void depositWithAmountOf(double amount) {
+	public void depositWithAmountOf(double amount) throws InterruptedException {
 		bankService.depositWithAmountOf(amount);
 	}
 
 	@Override
-	public void withdrawWithAmountOf(double amount) {
+	public void withdrawWithAmountOf(double amount) throws InterruptedException {
 		bankService.withdrawWithAmountOf(amount);
 	}
 
 	@Override
-	public void tranferToUserWithAmountOf(String usernameTranfer, double amount) {
-		bankService.tranferToUserWithAmountOf(usernameTranfer, amount);
+	public void tranferToUserWithAmountOf(String userTranfer, double amount) throws InterruptedException {
+		bankService.tranferToUserWithAmountOf(userTranfer, amount);
 	}
 
 	@Override
-	public void viewAmount() {
+	public void viewAmount() throws InterruptedException {
 		bankService.viewAmount();
 	}
 
 	@Override
-	public void viewTransaction() {
+	public void viewTransaction() throws InterruptedException {
 		bankService.viewTransaction();
 	}
 
 	@Override
-	public void viewProfile() {
+	public void viewProfile() throws InterruptedException {
 		bankService.viewProfile();
 	}
 }
